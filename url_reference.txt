@@ -1,0 +1,38 @@
+https://dev-blog.apollodata.com/full-stack-react-graphql-tutorial-582ac8d24e3b
+
+https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-node-js-and-express-f6dddc5320e1
+
+https://github.com/iKonrad/react-express-graphql-boilerplate
+
+https://levelup.gitconnected.com/using-graphql-api-with-node-js-and-react-forms-8b13f4b26361
+
+
+GraphQL URL - http://10.74.22.231:3001/graphql
+
+Sample Query:
+
+query {
+    user{
+      vzId
+      email
+      firstName
+      lastName
+      portfolio
+      location
+      phoneNo
+    } 
+}
+
+Sample Mutation:
+
+mutation {
+  addUser(vzId: "v111111", email: "first.last@verizon.com", lastName: "last", firstName: "first", portfolio: "VES", location: "Chennai", phoneNo: "1234567890") {
+    vzId
+    email
+    firstName
+    lastName
+    portfolio
+    location
+    phoneNo
+  }
+}

@@ -1,0 +1,239 @@
+query  getTopUpcomingEvents {
+  getTopUpcomingEvents {
+    eventId
+    eventName
+    eventType
+    eventStartDate
+    eventEndDate
+    nominationStartDate
+    nominationEndDate
+    minTeamSize
+    maxTeamSize
+    eventPortfolio
+    eventLocation
+    eventPOCMail
+    viewCount
+    likesCount
+  }
+}
+
+
+mutation upvote {
+  upLikeCount(eventId: 1) {
+    eventId
+    viewCount
+    likesCount
+  }
+}
+                                        {
+                                          "data": {
+                                            "upLikeCount": [
+                                              {
+                                                "eventId": 1,
+                                                "viewCount": 0,
+                                                "likesCount": 3
+                                              }
+                                            ]
+                                          }
+                                        }
+
+
+mutation upvote {
+  upViewCount(eventId: 1) {
+    eventId
+    viewCount
+    likesCount
+  }
+}
+
+
+
+--add eventregistration--
+mutation addEventRegistrationQuery {
+  addEventRegistration(eventId: 1, teamName: "no name",pocEmail :"TEST@COM",teamEmail :"TEST@COM") {
+    
+    eventId
+    teamId
+    teamName
+    pocEmail
+    teamEmail
+  }
+}
+mutation eventdetailsQuery {
+  addEventDetail(eventId: 1, problemStatement: "problem sta", eventPOCMail: "kap", Rules: "no rules") {
+    problemId
+    eventId
+    problemStatement
+    eventPOCMail
+    Rules
+  }
+}
+
+mutation eventprizeQuery {
+  addEventPrize(
+    eventId: 1,
+    prize: "cashhh", 
+    prizeName: "cash") {
+    prizeId
+    eventId
+    prize
+    prizeName
+  }
+}
+
+
+mutation eventResultQuery {
+  addEventResult(
+    eventId: 1,
+    teamId :1,
+    prizeId:1
+  ) { 
+    prizeId
+    eventId
+    teamId
+  }
+}
+
+
+
+--CREATEUSER--
+mutation CREATEUSERQUERY {
+  addUser(
+    vzId: "v222222", 
+    firstName: "MANOJ",
+    lastName: "SEKAR", 
+    email: "test@VERIZON.COM",
+  	portfolio:"VES",
+    location: "hYD",
+  	phoneNo:"111111",
+  ) {
+    vzId
+    firstName
+    lastName
+    email
+    portfolio
+    location
+    phoneNo
+  }
+}
+
+
+
+--CreateEventQuery--
+
+mutation CreateEventQuery {
+  addEvent(
+  eventId:1,
+  eventName:"Reactathon Future",
+  eventType:"Technology/Innovation",
+  eventStartDate:"08/02/2018",
+  eventEndDate:"08/04/2018",
+  nominationStartDate:"07/01/2018",
+  nominationEndDate:"07/30/2018",
+  minTeamSize: 1,
+  maxTeamSize: 5,
+  eventPortfolio:"ALL",
+  eventLocation:"All",
+  eventPOCMail:"karpagam.gurusamy@verizon.com",
+  viewCount: 0,
+  likesCount: 0
+  ) {
+   eventId,
+  eventName,
+  eventType,
+  eventStartDate,
+  eventEndDate,
+  nominationStartDate,
+  nominationEndDate,
+  minTeamSize,
+  maxTeamSize,
+  eventPortfolio,
+  eventLocation,
+  eventPOCMail,
+  viewCount,
+  likesCount
+  }
+}
+
+
+--add registration--
+mutation addRegistrationQuery {
+  addRegistration(vzId: "v1111111", eventId: "e001", teamId: "t00001", teamName: "no name") {
+    vzId
+    eventId
+    teamId
+    teamName
+  }
+}
+***********************************************************************************************************************
+
+
+--Users no param--
+query getAllUsers {
+  getAllUsers {
+    vzId
+    firstName
+    lastName
+    email
+    portfolio
+    location
+    phoneNo
+  }
+}
+
+--Users one param--
+query getUserbyLocation {
+  getUserbyLocation(location:"hYD") {
+    vzId
+    firstName
+    lastName
+    email
+    portfolio
+    location
+    phoneNo
+  }
+}
+--Users one or more param--
+query getUserbyLocation {
+  getUserbyPortfolio(portfolio:"VES",vzId: "v222222"
+  ) {
+    vzId
+    firstName
+    lastName
+    email
+    portfolio
+    location
+    phoneNo
+  }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+query getEventQuery {
+  getAllEvents {
+    eventId
+    eventName
+    eventType
+    eventStartDate
+    eventEndDate
+    nominationStartDate
+    nominationEndDate
+    minTeamSize
+    maxTeamSize
+    eventPortfolio
+    eventLocation
+    eventPOCMail
+    viewCount
+    likesCount
+  }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+query geRegistratioQuery {
+  getAllRegistration {
+    vzId
+    eventId
+    teamId
+    teamName
+  }
+}
